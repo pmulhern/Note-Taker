@@ -45,6 +45,30 @@ app.get("/api/notes", function(req, res) {
   res.json(notes)
 });
 
+// Post api is taking information posted from the front end end storing to the db.json and showing new notes on notes page list
+app.post("/api/notes", function(req, res) {
+  try {
+      notes = fs.readFileSync(outputPath, "utf8");
+      notes = JSON.parse(notes);
+      req.body.id = notes.length + 1;
+      console.log(req.body.id)
+      
+      notes.push(req.body);
+      notes = JSON.stringify(notes);
+      console.log(notes)
+      
+      fs.writeFile(outputPath, notes, "utf8", function(err) {
+          if(err) throw err;
+      });
+
+      res.json(JSON.parse(notes));
+      
+      
+  } catch(err) {
+      console.log(err);
+  }
+});
+
 
 
 
