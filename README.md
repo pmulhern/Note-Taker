@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![](./note_taker_demo.gif)
+
 ## Description
 
 In this project, we will create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve notes data from a JSON file.  All data entered will come from the front end of the application.  End user will have the ability to add new notes, retrieve notes and delete notes no longer needed.
