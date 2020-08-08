@@ -21,3 +21,9 @@ const outputPath = path.join(OUTPUT_DIR, "db.json");
 // Notes (DATA) - Set variabe notes as an empty array.  Will push here.
 // =============================================================
 let notes = [];
+
+// Routes
+// =============================================================
+app.get("/notes", function(req, res) {
+  res.sendFile(path.join(__dirname, "public/notes.html"));
+});
