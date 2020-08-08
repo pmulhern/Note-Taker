@@ -41,25 +41,13 @@ const renderActiveNote = () => {
   $saveNoteBtn.hide();
 
   if (activeNote.id) {
-    // ***ADDED***
-    $noteId.attr("readonly", true);
-    // ***ADDED***
     $noteTitle.attr("readonly", true);
     $noteText.attr("readonly", true);
-    // ***ADDED***
-    $noteId.val(activeNote.id);
-    // ***ADDED***
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
   } else {
-    // ***ADDED***
-    $noteId.attr("readonly", false);
-    // ***ADDED***
     $noteTitle.attr("readonly", false);
     $noteText.attr("readonly", false);
-    // ***ADDED***
-    $noteId.val("");
-    // ***ADDED***
     $noteTitle.val("");
     $noteText.val("");
   }
@@ -85,7 +73,7 @@ const handleNoteDelete = function (event) {
   event.stopPropagation();
 
   const note = $(this).parent(".list-group-item").data();
-
+  
   if (activeNote.id === note.id) {
     activeNote = {};
   }

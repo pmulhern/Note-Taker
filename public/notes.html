@@ -31,45 +31,16 @@
         </div>
       </div>
       <div class="col-8">
-        <input id="id" class="note-id" placeholder="Note ID" maxlength="100" type="text">
+        <!-- <input id="id" class="note-id" placeholder="Note ID" maxlength="100" type="text"> -->
         <input id="title"class="note-title" placeholder="Note Title" maxlength="28" type="text">
         <textarea id="text" class="note-textarea" placeholder="Note Text"></textarea>
-        <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Add Note</button>
       </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/assets/js/index.js"></script>
   
   <script type="text/javascript">
-    // Question: What does this code do?
-    $("#add-btn").on("click", function(event) {
-      event.preventDefault();
-      var newNote = {
-        id: $("#id").val().trim(),
-        title: $("#title").val().trim(),
-        text: $("#text").val().trim(),
-      };
-      console.log(newNote)
-      // Question: What does this code do??
-      $.post("/api/notes", newNote)
-        .then(function(data) {
-          alert("Added Note");
-        });
-    });
 
-    // type="text/javascript">   
-    //       $.get("/api/notes/", function(data) {
-    //         console.log(data);
-    //         if (data) {
-    //           $("#id").text(data[0].id);
-    //           $("#title").text(data[0].name);
-    //           $("#text").text(data[0].phone);
-             
-    //         } else {
-
-    //           alert("Something went wrong!")
-    //         }
-    //       });
 
   </script>
 
