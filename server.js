@@ -33,6 +33,17 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
+// Loads/ Displays stored notes from db.json when the notes page is initially loaded
+app.get("/api/notes", function(req, res) {
+
+  try{
+      notes = fs.readFileSync(outputPath, "utf8");
+      notes = JSON.parse(notes);
+  } catch(err) {
+      console.log(err);
+  }
+  res.json(notes)
+});
 
 
 
