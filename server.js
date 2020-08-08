@@ -69,6 +69,31 @@ app.post("/api/notes", function(req, res) {
   }
 });
 
+// Delete api is targeting the ID setup in the post and removing that note from the db.json, then returning a new list of notes
+app.delete("/api/notes/:id",function (req, res) {
+  try {
+    notes = fs.readFileSync(outputPath, "utf8");
+    notes = JSON.parse(notes);
+    notes = notes.filter(function(note){
+      return note.id != req.params.id;
+    }); 
+    
+    notes = JSON.stringify(notes);
+    console.log(notes)
+    
+    fs.writeFile(outputPath, notes, "utf8", function(err) {
+        if(err) throw err;
+    });
+    
+    res.send(JSON.parse(notes));
+    // Above is same as below.  Response back to the Delete API
+    // res.json(JSON.parse(notes));
+} catch(err) {
+    console.log(err);
+}
+
+});
+
 
 
 
