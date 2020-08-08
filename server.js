@@ -27,3 +27,8 @@ let notes = [];
 app.get("/notes", function(req, res) {
   res.sendFile(path.join(__dirname, "public/notes.html"));
 });
+
+// Basic route that sends the user first to the root Page
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+});
